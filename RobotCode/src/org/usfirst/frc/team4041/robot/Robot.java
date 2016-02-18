@@ -63,6 +63,7 @@ public class Robot extends SampleRobot {
 	        	getBall.set(loadSpeed*-1);
 	        	feedBall.set(loadSpeed);
 	        }
+	        //Expels unwanted balls
 	        else if(rightJ.getRawButton(2) || leftJ.getRawButton(2)){
 	        	getBall.set(loadSpeed);
 	        	feedBall.set(loadSpeed*-1);
