@@ -16,8 +16,9 @@ public class Robot extends SampleRobot {
 	Talon left = new Talon(1);
 	Talon getBall = new Talon(2);
 	Talon feedBall = new Talon(3);
-	Talon liftBot = new Talon(5);
 	Talon shootBall = new Talon(4);
+	Talon liftBot = new Talon(5);
+	Talon extendLift = new Talon(6);
 	//CANTalon shotBall = new CANTalon(0)
 	Joystick rightJ = new Joystick(0);
 	Joystick leftJ = new Joystick(1);
@@ -78,6 +79,15 @@ public class Robot extends SampleRobot {
 	        }
 	        else{
 	        	shootBall.set(0);
+	        }
+	        if(leftJ.getRawButton(4) || rightJ.getRawButton(4)){
+	        	liftBot.set(1);
+	        }
+	        else{
+	        	liftBot.set(0);
+	        }
+	        if(leftJ.getRawButton(5) || rightJ.getRawButton(5)){
+	        	extendLift.set(.25);
 	        }
 	        //Possible CAN implementation
 	        /*if(leftJ.getRawButton(1)||rightJ.getRawButton(1)){
