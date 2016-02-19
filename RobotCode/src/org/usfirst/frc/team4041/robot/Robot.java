@@ -94,7 +94,6 @@ public class Robot extends SampleRobot {
     		shootBall.changeControlMode(CANTalon.TalonControlMode.Speed);
     		shootBall.set(shootSpeed);
     		}*/
-	        //Expels unwanted balls
         }
     }
 }
