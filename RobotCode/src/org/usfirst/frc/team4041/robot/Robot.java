@@ -26,6 +26,7 @@ public class Robot extends SampleRobot {
 	RobotDrive driveTrain = new RobotDrive(right, left);
 	Timer timer = new Timer();
 	CameraServer server;
+	//Camera code is here
     public Robot() {
     	server = CameraServer.getInstance();
         server.setQuality(50);
