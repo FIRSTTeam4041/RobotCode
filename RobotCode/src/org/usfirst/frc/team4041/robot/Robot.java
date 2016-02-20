@@ -75,7 +75,7 @@ public class Robot extends SampleRobot {
 	        }
 	        //Shoots the ball
 	        if(leftJ.getRawButton(1) || rightJ.getRawButton(1)){
-	        	shootBall.set(-1);
+	        	shootBall.set(-.9);
 	        }
 	        else{
 	        	shootBall.set(0);
@@ -89,10 +89,13 @@ public class Robot extends SampleRobot {
 	        if(leftJ.getRawButton(5) || rightJ.getRawButton(5)){
 	        	extendLift.set(.25);
 	        }
+	        else{
+	        	extendLift.set(0);
+	        }
 	        //Possible CAN implementation
 	        /*if(leftJ.getRawButton(1)||rightJ.getRawButton(1)){
-    		shootBall.changeControlMode(CANTalon.TalonControlMode.Speed);
-    		shootBall.set(shootSpeed);
+    			shootBall.changeControlMode(CANTalon.TalonControlMode.Speed);
+    			shootBall.set(shootSpeed);
     		}*/
         }
     }
