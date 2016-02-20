@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.*;
  */
 public class Robot extends SampleRobot {
 	//This is where instantiations are declared
+	//asdfghjkl
 	long shootSpeed = 2000;
 	double loadSpeed = .75;
 	Talon right = new Talon(0);
