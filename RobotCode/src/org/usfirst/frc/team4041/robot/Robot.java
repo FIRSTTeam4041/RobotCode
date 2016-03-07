@@ -18,14 +18,16 @@ public class Robot extends SampleRobot {
 	Talon getBall = new Talon(2);
 	Talon feedBall = new Talon(3);
 	Talon shootBall = new Talon(4);
-	Talon liftBot = new Talon(5);
+	//Talon liftBot = new Talon(5);
 	Talon extendLift = new Talon(6);
-	//CANTalon shotBall = new CANTalon(0)
+	CANTalon lift1 = new CANTalon(0);
+	CANTalon lift2 = new CANTalon(1);
 	Joystick rightJ = new Joystick(0);
 	Joystick leftJ = new Joystick(1);
 	RobotDrive driveTrain = new RobotDrive(right, left);
 	Timer timer = new Timer();
 	CameraServer server;
+	//Camera code is here
     public Robot() {
     	server = CameraServer.getInstance();
         server.setQuality(50);
@@ -76,21 +78,47 @@ public class Robot extends SampleRobot {
 	        }
 	        //Shoots the ball
 	        if(leftJ.getRawButton(1) || rightJ.getRawButton(1)){
-	        	shootBall.set(-.9);
+	        	shootBall.set(-.95);
+	        }
+	        else if(leftJ.getRawButton(6) || rightJ.getRawButton(6)){
+	        	shootBall.set(.95);
 	        }
 	        else{
 	        	shootBall.set(0);
 	        }
 	        if(leftJ.getRawButton(4) || rightJ.getRawButton(4)){
-	        	liftBot.set(1);
+	        	lift1.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+	        	lift2.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+	        	lift1.set(1);
+	        	lift2.set(1);
+	        }
+	        else if(leftJ.getRawButton(8) || rightJ.getRawButton(8)){
+	        	lift1.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+	        	lift2.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+	        	lift1.set(-1);
+	        	lift2.set(-1);
 	        }
 	        else{
-	        	liftBot.set(0);
+	        	lift1.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+	        	lift2.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+	        	lift1.set(0);
+	        	lift2.set(0);
 	        }
 	        if(leftJ.getRawButton(5) || rightJ.getRawButton(5)){
-	        	extendLift.set(.25);
+	        	//lift1.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+	        	//lift2.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+	        	//lift1.set(.5);
+	        	//lift2.set(.5);
+	        	extendLift.set(1);
+	        }
+	        else if(leftJ.getRawButton(7) || rightJ.getRawButton(7)){
+	        	extendLift.set(-1);
 	        }
 	        else{
+	        	lift1.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+	        	lift2.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+	        	lift1.set(0);
+	        	lift2.set(0);
 	        	extendLift.set(0);
 	        }
 	        //Possible CAN implementation
