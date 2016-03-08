@@ -9,8 +9,8 @@ import edu.wpi.first.wpilibj.*;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
+// hey hey hey hey 
 public class Robot extends SampleRobot {
-	//This is where instantiations are declared
 	long shootSpeed = 2000;
 	double loadSpeed = .75;
 	Talon right = new Talon(0);
